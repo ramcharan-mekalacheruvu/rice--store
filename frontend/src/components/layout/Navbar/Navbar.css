@@ -1,0 +1,167 @@
+/* ===================================
+   Navbar base
+   =================================== */
+
+   .navbar {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    background: linear-gradient(135deg, #2E7D32, #43A047) !important;
+    transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  /* shrinks slightly and deepens shadow once user scrolls down */
+  .navbar.navbar-scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18) !important;
+  }
+  
+  /* ===================================
+     Brand / Logo
+     =================================== */
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.25s ease;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.03);
+  }
+  
+  .brand-icon {
+    display: inline-block;
+    font-size: 1.6rem;
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+  }
+  
+  .brand-text {
+    background: linear-gradient(90deg, #fff, #e8f5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  /* ===================================
+     Nav links
+     =================================== */
+  
+  .navbar-nav .nav-link {
+    position: relative;
+    font-weight: 500;
+    padding: 0.55rem 1.1rem !important;
+    margin: 0 0.15rem;
+    color: rgba(255, 255, 255, 0.88) !important;
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.25s ease;
+  }
+  
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* animated underline */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 1.1rem;
+    right: 1.1rem;
+    bottom: 0.3rem;
+    height: 2px;
+    background-color: #ffc107;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* active route — now functional since JSX uses NavLink */
+  .navbar-nav .nav-link.active {
+    color: #fff !important;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  
+  .navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+    background-color: #ffc107;
+  }
+  
+  /* ===================================
+     Toggler (mobile menu button)
+     =================================== */
+  
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 0.35rem 0.6rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  
+  .navbar-toggler:active {
+    transform: scale(0.92);
+  }
+  
+  /* ===================================
+     Mobile responsive
+     =================================== */
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      animation: dropFade 0.3s ease-out both;
+    }
+  
+    .navbar-nav {
+      text-align: center;
+      padding-top: 0.75rem;
+    }
+  
+    .navbar-nav .nav-link {
+      margin: 0.2rem 0;
+    }
+  
+    .navbar-nav .nav-link::after {
+      display: none;
+    }
+  
+    .navbar-nav .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+  
+  @keyframes dropFade {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .brand-icon {
+      animation: none;
+    }
+  }
