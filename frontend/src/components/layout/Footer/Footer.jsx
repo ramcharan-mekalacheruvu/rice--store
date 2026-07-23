@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
+
     return (
 
         <footer className="footer">
@@ -10,8 +11,6 @@ export default function Footer() {
 
                 <div className="row">
 
-                    {/* Store */}
-
                     <div className="col-lg-4 col-md-6 mb-4">
 
                         <h3 className="footer-logo">
@@ -19,16 +18,10 @@ export default function Footer() {
                         </h3>
 
                         <p>
-
-                            Premium quality rice delivered
-                            directly to your home with
-                            Cash on Delivery.
-
+                            Premium quality rice delivered directly to your home with Cash on Delivery.
                         </p>
 
                     </div>
-
-                    {/* Links */}
 
                     <div className="col-lg-2 col-md-6 mb-4">
 
@@ -48,8 +41,6 @@ export default function Footer() {
 
                     </div>
 
-                    {/* Customer */}
-
                     <div className="col-lg-3 col-md-6 mb-4">
 
                         <h5>Customer Support</h5>
@@ -68,19 +59,35 @@ export default function Footer() {
 
                     </div>
 
-                    {/* Social */}
-
                     <div className="col-lg-3 col-md-6 mb-4">
 
                         <h5>Follow Us</h5>
 
                         <div className="social-links">
 
-                            <a href="#">Facebook</a>
+                            <a
+                                href="https://facebook.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Facebook
+                            </a>
 
-                            <a href="#">Instagram</a>
+                            <a
+                                href="https://instagram.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Instagram
+                            </a>
 
-                            <a href="#">WhatsApp</a>
+                            <a
+                                href="https://twitter.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Twitter
+                            </a>
 
                         </div>
 
@@ -92,8 +99,7 @@ export default function Footer() {
 
                 <div className="footer-bottom">
 
-                    © 2026 Khadri Rice Store |
-                    All Rights Reserved.
+                    © 2026 Khadri Rice Store | All Rights Reserved.
 
                 </div>
 
@@ -102,4 +108,5 @@ export default function Footer() {
         </footer>
 
     );
+
 }

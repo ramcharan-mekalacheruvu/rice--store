@@ -1,4 +1,9 @@
-import { useEffect, useState } from "react";
+import {
+    useEffect,
+    useState,
+    useCallback,
+} from "react";
+
 import { useSearchParams } from "react-router-dom";
 
 import { getProducts } from "../../services/productService";
@@ -13,7 +18,8 @@ export default function Products() {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const selectedCategory = searchParams.get("category") || "";
+    const selectedCategory =
+        searchParams.get("category") || "";
 
     const [products, setProducts] = useState([]);
 
@@ -21,32 +27,22 @@ export default function Products() {
 
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-
-        loadCategories();
-
-    }, []);
-
-    useEffect(() => {
-
-        loadProducts();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedCategory]);
-
-    async function loadCategories() {
+    const loadCategories = useCallback(async () => {
 
         try {
 
             const response = await getCategories();
 
-            const data = response.data?.results
-                || response.data
-                || response.results
-                || response
-                || [];
+            const data =
+                response.data?.results ||
+                response.data ||
+                [];
 
-            setCategories(Array.isArray(data) ? data : []);
+            setCategories(
+                Array.isArray(data)
+                    ? data
+                    : []
+            );
 
         }
 
@@ -58,9 +54,9 @@ export default function Products() {
 
         }
 
-    }
+    }, []);
 
-    async function loadProducts() {
+    const loadProducts = useCallback(async () => {
 
         setLoading(true);
 
@@ -70,13 +66,19 @@ export default function Products() {
                 ? { category: selectedCategory }
                 : {};
 
-            const response = await getProducts(params);
+            const response =
+                await getProducts(params);
+
+            const data =
+                response.data.data?.results ||
+                response.data.results ||
+                response.data ||
+                [];
 
             setProducts(
-                response.data.results
-                || response.data.data?.results
-                || response.data
-                || []
+                Array.isArray(data)
+                    ? data
+                    : []
             );
 
         }
@@ -95,13 +97,27 @@ export default function Products() {
 
         }
 
-    }
+    }, [selectedCategory]);
+
+    useEffect(() => {
+
+        loadCategories();
+
+    }, [loadCategories]);
+
+    useEffect(() => {
+
+        loadProducts();
+
+    }, [loadProducts]);
 
     function handleCategoryChange(slug) {
 
         if (slug) {
 
-            setSearchParams({ category: slug });
+            setSearchParams({
+                category: slug,
+            });
 
         }
 
@@ -118,9 +134,7 @@ export default function Products() {
         <div className="container py-5">
 
             <h2 className="mb-4">
-
                 Our Rice Collection
-
             </h2>
 
             <div className="row">
@@ -128,13 +142,9 @@ export default function Products() {
                 <div className="col-lg-3 mb-4">
 
                     <ProductFilter
-
                         categories={categories}
-
                         selected={selectedCategory}
-
                         onChange={handleCategoryChange}
-
                     />
 
                 </div>
@@ -143,7 +153,7 @@ export default function Products() {
 
                     {
 
-                        loading ? (
+                        loading ?
 
                             <div className="text-center py-5">
 
@@ -151,45 +161,40 @@ export default function Products() {
 
                             </div>
 
-                        ) : products.length === 0 ? (
+                            :
 
-                            <p className="text-muted">
+                            products.length === 0 ?
 
-                                No products found.
+                                <p className="text-muted">
 
-                            </p>
+                                    No products found.
 
-                        ) : (
+                                </p>
 
-                            <div className="row">
+                                :
 
-                                {
+                                <div className="row">
 
-                                    products.map(product => (
+                                    {
 
-                                        <div
+                                        products.map(product => (
 
-                                            key={product.id}
+                                            <div
+                                                key={product.id}
+                                                className="col-lg-4 col-md-6 mb-4"
+                                            >
 
-                                            className="col-lg-4 col-md-6 mb-4"
+                                                <ProductCard
+                                                    product={product}
+                                                />
 
-                                        >
+                                            </div>
 
-                                            <ProductCard
+                                        ))
 
-                                                product={product}
+                                    }
 
-                                            />
-
-                                        </div>
-
-                                    ))
-
-                                }
-
-                            </div>
-
-                        )
+                                </div>
 
                     }
 

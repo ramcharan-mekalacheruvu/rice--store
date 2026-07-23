@@ -1,70 +1,112 @@
-import { useEffect, useState } from "react";
+import {
+    useEffect,
+    useState,
+    useCallback,
+} from "react";
+
 import { useParams } from "react-router-dom";
+
 import { getProductBySlug } from "../../services/productService";
 import { addToCart } from "../../services/cartService";
+
 import "./ProductDetails.css";
 
 export default function ProductDetails() {
+
     const { slug } = useParams();
 
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        loadProduct();
-    }, [slug]);
+    const loadProduct = useCallback(async () => {
 
-    async function loadProduct() {
         try {
+
             const response = await getProductBySlug(slug);
 
             const data = response.data.data || response.data;
 
             setProduct(data);
+
         } catch (error) {
+
             console.log(error);
+
         } finally {
+
             setLoading(false);
+
         }
-    }
+
+    }, [slug]);
+
+    useEffect(() => {
+
+        loadProduct();
+
+    }, [loadProduct]);
 
     async function handleAddToCart() {
+
         try {
+
             await addToCart(product.id, quantity);
+
             alert("Product added to cart.");
+
         } catch (error) {
+
             console.log(error);
+
             alert("Unable to add product.");
+
         }
+
     }
 
     if (loading) {
+
         return (
+
             <div className="text-center py-5">
+
                 <div className="spinner-border text-success"></div>
+
             </div>
+
         );
+
     }
 
     if (!product) {
+
         return (
+
             <div className="container py-5 text-center">
+
                 <h3>Product not found</h3>
+
             </div>
+
         );
+
     }
 
     return (
+
         <div className="container py-5">
+
             <div className="row">
 
                 <div className="col-lg-6">
+
                     <img
                         src={product.image}
                         alt={product.name}
                         className="img-fluid rounded"
                     />
+
                 </div>
 
                 <div className="col-lg-6">
@@ -98,7 +140,9 @@ export default function ProductDetails() {
                         </button>
 
                         <span className="mx-3">
+
                             {quantity}
+
                         </span>
 
                         <button
@@ -122,6 +166,9 @@ export default function ProductDetails() {
                 </div>
 
             </div>
+
         </div>
+
     );
+
 }
