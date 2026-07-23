@@ -1,12 +1,12 @@
 from urllib.parse import quote
 from decouple import config
 
-class WhatsAppService:
 
-    STORE_PHONE = config("STORE_PHONE")   # Replace with your store owner's WhatsApp number
+class WhatsAppService:
 
     @staticmethod
     def generate_message(order):
+        store_phone = config("STORE_PHONE", default="919704077705")
 
         address = order.address
 
@@ -32,7 +32,6 @@ Items:
 """
 
         for item in order.items.all():
-
             message += (
                 f"\n• {item.product.name}"
                 f" x {item.quantity}"
@@ -52,8 +51,4 @@ Thank You
 
         encoded = quote(message)
 
-        return (
-            f"https://wa.me/"
-            f"{WhatsAppService.STORE_PHONE}"
-            f"?text={encoded}"
-        )
+        return f"https://wa.me/{store_phone}?text={encoded}"
