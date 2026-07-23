@@ -8,6 +8,8 @@ export default function DeleteProductModal({
 
     onClose,
 
+    deleting,
+
 }){
 
     return(
@@ -52,6 +54,8 @@ export default function DeleteProductModal({
 
                             onClick={onClose}
 
+                            disabled={deleting}
+
                         >
 
                             Cancel
@@ -62,9 +66,11 @@ export default function DeleteProductModal({
 
                             onClick={onDelete}
 
+                            disabled={deleting}
+
                         >
 
-                            Delete
+                            {deleting ? "Deleting..." : "Delete"}
 
                         </Button>
 

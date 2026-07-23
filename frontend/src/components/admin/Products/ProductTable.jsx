@@ -366,6 +366,7 @@ export default function ProductTable() {
                         onClose={() =>
                             setDeletingProduct(null)
                         }
+                        deleting={deleting}
                     />
 
                 )
