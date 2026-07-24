@@ -26,60 +26,95 @@ export default function ProductCard({ product }) {
 
     return (
 
-        <div className="card product-card h-100">
+        <div className="product-card h-100">
 
-            <img
-                src={product.image}
-                alt={product.name}
-                className="card-img-top"
-            />
+            {
 
-            <div className="card-body">
+                product.discount_price &&
 
-                <h5>{product.name}</h5>
+                <span className="discount-badge">
+
+                    SALE
+
+                </span>
+
+            }
+
+            <div className="product-image">
+
+                <img
+                    src={product.image}
+                    alt={product.name}
+                />
+
+            </div>
+
+            <div className="product-body">
 
                 <p className="product-category">
+
                     {product.category_name}
+
                 </p>
+
+                <h5>
+
+                    {product.name}
+
+                </h5>
 
                 <div className="price-section">
 
                     {
+
                         product.discount_price ?
 
-                        <>
+                            <>
+
+                                <span className="discount-price">
+
+                                    ₹{product.discount_price}
+
+                                </span>
+
+                                <span className="old-price">
+
+                                    ₹{product.price}
+
+                                </span>
+
+                            </>
+
+                            :
+
                             <span className="discount-price">
-                                ₹{product.discount_price}
-                            </span>
 
-                            <span className="old-price">
                                 ₹{product.price}
+
                             </span>
-                        </>
 
-                        :
-
-                        <span className="discount-price">
-                            ₹{product.price}
-                        </span>
                     }
 
                 </div>
 
-                <div className="d-grid gap-2 mt-3">
+                <div className="product-buttons">
 
                     <Link
                         to={`/products/${product.slug}`}
                         className="btn btn-outline-success"
                     >
+
                         View Details
+
                     </Link>
 
                     <button
                         className="btn btn-success"
                         onClick={handleAddToCart}
                     >
+
                         Add To Cart
+
                     </button>
 
                 </div>

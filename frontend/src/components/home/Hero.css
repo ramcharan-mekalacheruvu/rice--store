@@ -1,174 +1,363 @@
-/* ===================================
-   Hero Section
-   =================================== */
+/*==========================================
+Hero
+==========================================*/
 
-   .hero {
-    margin-top: 38px; /* ~1cm gap below sticky navbar */
-    background: #f1f3f5;
-    color: #039651;
-    padding: 90px 0 130px;
-    position: relative;
-    overflow: hidden;
-    padding: 60px 15px;
-    border-radius: 16px;
-  }
-  
-  @media (min-width: 768px) {
-    .hero {
-      margin-top: 40px;
-    }
-  }
-  
-  /* ===================================
-     Hero Text Content
-     =================================== */
-  
-  .hero h1 {
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 18px;
-    letter-spacing: -0.5px;
-    animation: fadeSlideUp 0.8s ease-out both;
-  }
-  
-  .hero p:not(.text-warning) {
-    font-size: 19px;
-    opacity: 0.92;
-    margin-bottom: 14px !important;
-    animation: fadeSlideUp 0.8s ease-out 0.15s both;
-  }
-  
-  /* return-policy trust badge */
-  /* return-policy badge — was styled for a dark background */
-.hero p.text-warning {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(8, 134, 46, 0.12);
-    border: 1px solid rgba(17, 146, 25, 0.758);
-    color: #7a5c00;
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 14px !important;
-    animation: fadeSlideUp 0.8s ease-out 0.3s both;
-  }
-  
-  /* Telugu border divider — was rgba white, needs a visible color on light bg */
-  .hero .border-top {
-    border-color: rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  /* CTA button */
-  .hero .btn-warning {
-    font-weight: 700;
-    padding: 14px 36px;
-    border-radius: 40px;
-    font-size: 17px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: fadeSlideUp 0.8s ease-out 0.45s both;
-  }
-  
-  .hero .btn-warning:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
-    color: white;
-  }
-  
-  /* ===================================
-     Telugu Translation Block
-     =================================== */
-  
-  .hero .border-top {
-    border-color: rgba(255, 255, 255, 0.25) !important;
-  }
-  
-  .hero h2[lang="te"] {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-  
-  .hero p[lang="te"]:not(.text-warning) {
-    font-size: 17px;
-    opacity: 0.92;
-  }
-  
-  .hero p.text-warning[lang="te"] {
-    font-size: 13px !important;
-    padding: 7px 14px;
-  }
-  
-  /* ===================================
-     Hero Image
-     =================================== */
-  
-  .hero-image {
-    display: block;
-    max-width: 100%;
-    padding: 0;
-    margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
-    animation: floatImage 4s ease-in-out infinite;
-  }
-  
-  @keyframes floatImage {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
-  /* ===================================
-     Entrance animation
-     =================================== */
-  
-  @keyframes fadeSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* ===================================
-     Responsive
-     =================================== */
-  
-  @media (max-width: 991px) {
-    .hero h1 {
-      font-size: 38px;
-    }
-  
-    .hero h2[lang="te"] {
-      font-size: 22px;
-    }
-  
-    .hero p:not(.text-warning) {
-      font-size: 17px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .hero h1 {
-      font-size: 30px;
-    }
-  
-    .hero .btn-warning {
-      padding: 12px 28px;
-      font-size: 15px;
-      width: 100%;
-      text-align: center;
-    }
-  }
+.hero{
+
+margin-top:20px;
+padding:70px 0;
+background:#f8faf8;
+border-radius:24px;
+overflow:hidden;
+position:relative;
+
+}
+
+.hero::before{
+
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:350px;
+height:350px;
+background:rgba(46,125,50,.05);
+border-radius:50%;
+transform:translate(120px,-120px);
+
+}
+
+.hero .container{
+
+position:relative;
+z-index:2;
+
+}
+
+/*==========================================
+Hero Badge
+==========================================*/
+
+.hero-badge{
+
+display:inline-block;
+padding:8px 18px;
+background:#E8F5E9;
+color:#2E7D32;
+border-radius:50px;
+font-size:14px;
+font-weight:600;
+margin-bottom:18px;
+
+}
+
+/*==========================================
+Heading
+==========================================*/
+
+.hero h1{
+
+font-size:54px;
+font-weight:800;
+line-height:1.15;
+margin-bottom:20px;
+color:#222;
+
+}
+
+.hero h1 span{
+
+color:#2E7D32;
+
+}
+
+.hero-description{
+
+font-size:18px;
+line-height:1.8;
+color:#555;
+margin-bottom:25px;
+max-width:540px;
+
+}
+
+/*==========================================
+Trust Badge
+==========================================*/
+
+.hero-trust{
+
+display:inline-block;
+background:#FFF8E1;
+border:1px solid #FFD54F;
+padding:12px 18px;
+border-radius:50px;
+font-size:15px;
+font-weight:600;
+color:#795548;
+margin-bottom:30px;
+
+}
+
+/*==========================================
+Button
+==========================================*/
+
+.hero-buttons{
+
+display:flex;
+gap:15px;
+margin-bottom:40px;
+
+}
+
+.hero .btn{
+
+padding:14px 36px;
+border-radius:50px;
+font-size:17px;
+font-weight:700;
+transition:.3s;
+
+}
+
+.hero .btn:hover{
+
+transform:translateY(-4px);
+
+}
+
+/*==========================================
+Telugu
+==========================================*/
+
+.hero-telugu{
+
+padding-top:30px;
+border-top:1px solid #ddd;
+
+}
+
+.hero-telugu h2{
+
+font-size:28px;
+font-weight:700;
+color:#2E7D32;
+margin-bottom:15px;
+
+}
+
+.hero-telugu p{
+
+font-size:17px;
+line-height:1.7;
+color:#555;
+
+}
+
+.hero-telugu .telugu{
+
+margin-top:15px;
+margin-bottom:0;
+
+}
+
+/*==========================================
+Image
+==========================================*/
+
+.hero-image{
+
+width:100%;
+max-width:500px;
+animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 25px 35px rgba(0,0,0,.15));
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/*==========================================
+Tablet
+==========================================*/
+
+@media(max-width:991px){
+
+.hero{
+
+padding:50px 25px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero-description{
+
+font-size:17px;
+
+}
+
+.hero-image{
+
+max-width:360px;
+margin-bottom:30px;
+
+}
+
+}
+
+/*==========================================
+Mobile
+==========================================*/
+
+@media(max-width:768px){
+
+.hero{
+
+padding:35px 18px;
+margin-top:12px;
+border-radius:16px;
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:32px;
+line-height:1.25;
+margin-top:10px;
+
+}
+
+.hero-description{
+
+font-size:15px;
+line-height:1.7;
+max-width:100%;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero .btn{
+
+width:100%;
+padding:13px;
+font-size:16px;
+
+}
+
+.hero-trust{
+
+font-size:13px;
+padding:10px 14px;
+border-radius:30px;
+
+}
+
+.hero-image{
+
+max-width:250px;
+margin-bottom:20px;
+animation:none;
+
+}
+
+.hero-telugu{
+
+margin-top:25px;
+padding-top:20px;
+
+}
+
+.hero-telugu h2{
+
+font-size:22px;
+
+}
+
+.hero-telugu p{
+
+font-size:15px;
+
+}
+
+}
+
+/*==========================================
+Small Phones
+==========================================*/
+
+@media(max-width:480px){
+
+.hero{
+
+padding:28px 15px;
+
+}
+
+.hero h1{
+
+font-size:28px;
+
+}
+
+.hero-description{
+
+font-size:14px;
+
+}
+
+.hero-image{
+
+max-width:210px;
+
+}
+
+.hero-telugu h2{
+
+font-size:20px;
+
+}
+
+.hero-telugu p{
+
+font-size:14px;
+
+}
+
+.hero .btn{
+
+font-size:15px;
+
+}
+
+}

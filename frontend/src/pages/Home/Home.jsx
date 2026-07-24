@@ -9,19 +9,13 @@ import "./Home.css";
 
 export default function Home() {
     return (
-        <>
-            <div className="home-bg-wrapper">
-                
-                
-            </div>
+        <div className="home-bg-wrapper">
             <Hero />
             <Categories />
             <FeaturedProducts />
             <WhyChooseUs />
-
             <Testimonials />
-
             <Newsletter />
-        </>
+        </div>
     );
 }

@@ -5,7 +5,7 @@ const testimonials = [
     {
         name: "Rahul Kumar",
         city: "Kadapa",
-        image: "/images/users/user1.jpg",
+        image: "/images/users/ram.jpeg",
         review:
             "Very fresh rice and excellent packaging. Highly recommended.",
         rating: 5,
@@ -39,23 +39,19 @@ export default function Testimonials() {
 
             <div className="container">
 
-                <div className="text-center mb-5">
+                <div className="text-center section-heading">
 
                     <h2 className="section-title">
-
                         What Our Customers Say
-
                     </h2>
 
                     <p className="section-subtitle">
-
-                        Trusted by hundreds of happy families.
-
+                        Trusted by hundreds of happy families across Andhra Pradesh.
                     </p>
 
                 </div>
 
-                <div className="row">
+                <div className="row g-4">
 
                     {
 
@@ -63,14 +59,14 @@ export default function Testimonials() {
 
                             <div
                                 key={index}
-                                className="col-lg-4 col-md-6 mb-4"
+                                className="col-12 col-md-6 col-lg-4"
                             >
 
                                 <div className="testimonial-card">
 
                                     <div className="stars">
 
-                                        ⭐⭐⭐⭐⭐
+                                        {"⭐".repeat(item.rating)}
 
                                     </div>
 
@@ -89,9 +85,17 @@ export default function Testimonials() {
 
                                         <div>
 
-                                            <h6>{item.name}</h6>
+                                            <h6>
 
-                                            <small>{item.city}</small>
+                                                {item.name}
+
+                                            </h6>
+
+                                            <small>
+
+                                                {item.city}
+
+                                            </small>
 
                                         </div>
 

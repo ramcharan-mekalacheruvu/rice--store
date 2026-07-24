@@ -10,7 +10,6 @@ export default function Categories() {
     const navigate = useNavigate();
 
     const [categories, setCategories] = useState([]);
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,17 +18,18 @@ export default function Categories() {
 
     }, []);
 
-    const loadCategories = async () => {
+    async function loadCategories() {
 
         try {
 
             const response = await getCategories();
 
-            const data = response.data?.results
-                || response.data
-                || response.results
-                || response
-                || [];
+            const data =
+                response.data?.results ||
+                response.data ||
+                response.results ||
+                response ||
+                [];
 
             setCategories(Array.isArray(data) ? data : []);
 
@@ -49,7 +49,7 @@ export default function Categories() {
 
         }
 
-    };
+    }
 
     function handleCategoryClick(category) {
 
@@ -63,7 +63,7 @@ export default function Categories() {
 
             <div className="text-center py-5">
 
-                <div className="spinner-border text-success" />
+                <div className="spinner-border text-success"></div>
 
             </div>
 
@@ -75,9 +75,9 @@ export default function Categories() {
 
         return (
 
-            <div className="container my-5 text-center">
+            <div className="container category-section">
 
-                <h2>
+                <h2 className="section-title">
 
                     Categories
 
@@ -97,47 +97,49 @@ export default function Categories() {
 
     return (
 
-        <div className="container my-5">
+        <section className="container category-section">
 
-            <h2>
+            <div className="section-header">
 
-                Categories
+                <h2 className="section-title">
 
-            </h2>
+                    Shop By Category
 
-            <div className="row categories-row">
+                </h2>
+
+                <p>
+
+                    Choose your favourite rice variety
+
+                </p>
+
+            </div>
+
+            <div className="row g-3">
 
                 {
 
                     categories.map(category => (
 
                         <div
-
-                            className="col-md-3 col-6"
-
+                            className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6"
                             key={category.id}
-
                         >
 
                             <div
-
-                                className="card category-card"
-
-                                role="button"
-
+                                className="category-card"
                                 onClick={() => handleCategoryClick(category)}
-
                             >
 
-                                <img
+                                <div className="category-image-wrapper">
 
-                                    className="category-image"
+                                    <img
+                                        src={category.image}
+                                        alt={category.name}
+                                        className="category-image"
+                                    />
 
-                                    src={category.image}
-
-                                    alt={category.name}
-
-                                />
+                                </div>
 
                                 <div className="card-body">
 
@@ -159,7 +161,7 @@ export default function Categories() {
 
             </div>
 
-        </div>
+        </section>
 
     );
 

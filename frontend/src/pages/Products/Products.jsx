@@ -62,9 +62,10 @@ export default function Products() {
 
         try {
 
-            const params = selectedCategory
-                ? { category: selectedCategory }
-                : {};
+            const params =
+                selectedCategory
+                    ? { category: selectedCategory }
+                    : {};
 
             const response =
                 await getProducts(params);
@@ -131,15 +132,23 @@ export default function Products() {
 
     return (
 
-        <div className="container py-5">
+        <section className="products-page container py-4 py-lg-5">
 
-            <h2 className="mb-4">
-                Our Rice Collection
-            </h2>
+            <div className="products-header">
 
-            <div className="row">
+                <h2>
+                    Our Rice Collection
+                </h2>
 
-                <div className="col-lg-3 mb-4">
+                <p>
+                    Fresh, premium quality rice directly from trusted farmers.
+                </p>
+
+            </div>
+
+            <div className="row g-4">
+
+                <div className="col-lg-3">
 
                     <ProductFilter
                         categories={categories}
@@ -165,15 +174,21 @@ export default function Products() {
 
                             products.length === 0 ?
 
-                                <p className="text-muted">
+                                <div className="text-center py-5">
 
-                                    No products found.
+                                    <h5>No Products Found</h5>
 
-                                </p>
+                                    <p className="text-muted">
+
+                                        Try selecting another category.
+
+                                    </p>
+
+                                </div>
 
                                 :
 
-                                <div className="row">
+                                <div className="row g-4">
 
                                     {
 
@@ -181,7 +196,11 @@ export default function Products() {
 
                                             <div
                                                 key={product.id}
-                                                className="col-lg-4 col-md-6 mb-4"
+                                                className="
+                                                col-6
+                                                col-md-6
+                                                col-lg-4
+                                                "
                                             >
 
                                                 <ProductCard
@@ -202,7 +221,7 @@ export default function Products() {
 
             </div>
 
-        </div>
+        </section>
 
     );
 

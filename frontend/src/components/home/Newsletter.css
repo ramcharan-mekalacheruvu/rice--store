@@ -1,83 +1,297 @@
+/* ===================================
+   Newsletter Section
+=================================== */
+
 .newsletter{
 
-    padding:90px 0;
-    
+    padding:80px 0;
+
     background:linear-gradient(
-    135deg,
-    #2E7D32,
-    #43A047
+        135deg,
+        #2E7D32,
+        #43A047
     );
-    
-    }
-    
-    .newsletter-box{
-    
-    background:white;
-    
+
+}
+
+/* ===================================
+   Card
+=================================== */
+
+.newsletter-box{
+
+    max-width:850px;
+
+    margin:auto;
+
+    background:#fff;
+
     padding:60px;
-    
-    border-radius:20px;
-    
+
+    border-radius:24px;
+
     text-align:center;
-    
-    box-shadow:0 20px 50px rgba(0,0,0,.15);
-    
-    }
-    
-    .newsletter h2{
-    
-    font-size:40px;
-    
-    font-weight:700;
-    
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.newsletter-box:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/* ===================================
+   Heading
+=================================== */
+
+.newsletter h2{
+
     color:#2E7D32;
-    
-    margin-bottom:15px;
-    
-    }
-    
-    .newsletter p{
-    
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.newsletter p{
+
     color:#666;
-    
+
     font-size:18px;
-    
+
+    line-height:1.7;
+
     margin-bottom:35px;
-    
-    }
-    
-    .newsletter-form{
-    
+
+}
+
+/* ===================================
+   Form
+=================================== */
+
+.newsletter-form{
+
     display:flex;
-    
+
     justify-content:center;
-    
+
+    align-items:center;
+
     gap:15px;
-    
-    flex-wrap:wrap;
-    
-    }
-    
-    .newsletter-form input{
-    
-    width:420px;
-    
-    padding:15px 20px;
-    
-    border-radius:50px;
-    
+
+}
+
+.newsletter-form input{
+
+    flex:1;
+
+    max-width:500px;
+
+    height:56px;
+
+    padding:0 22px;
+
     border:1px solid #ddd;
-    
-    font-size:16px;
-    
-    }
-    
-    .newsletter-form button{
-    
-    padding:15px 35px;
-    
+
     border-radius:50px;
-    
-    font-weight:600;
-    
-    }
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.newsletter-form input:focus{
+
+    outline:none;
+
+    border-color:#2E7D32;
+
+    box-shadow:0 0 0 4px rgba(46,125,50,.15);
+
+}
+
+.newsletter-form button{
+
+    height:56px;
+
+    padding:0 35px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media (max-width:991px){
+
+.newsletter{
+
+padding:60px 0;
+
+}
+
+.newsletter-box{
+
+padding:45px 35px;
+
+}
+
+.newsletter h2{
+
+font-size:34px;
+
+}
+
+.newsletter p{
+
+font-size:16px;
+
+}
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media (max-width:768px){
+
+.newsletter{
+
+padding:50px 15px;
+
+}
+
+.newsletter-box{
+
+padding:30px 20px;
+
+border-radius:18px;
+
+}
+
+.newsletter h2{
+
+font-size:28px;
+
+margin-bottom:12px;
+
+}
+
+.newsletter p{
+
+font-size:15px;
+
+margin-bottom:25px;
+
+}
+
+.newsletter-form{
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+.newsletter-form input{
+
+width:100%;
+
+max-width:100%;
+
+height:50px;
+
+font-size:15px;
+
+}
+
+.newsletter-form button{
+
+width:100%;
+
+height:50px;
+
+font-size:15px;
+
+}
+
+}
+
+/* ===================================
+   Small Mobile
+=================================== */
+
+@media (max-width:480px){
+
+.newsletter{
+
+padding:40px 12px;
+
+}
+
+.newsletter-box{
+
+padding:24px 16px;
+
+}
+
+.newsletter h2{
+
+font-size:24px;
+
+}
+
+.newsletter p{
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+.newsletter-form input{
+
+height:48px;
+
+padding:0 18px;
+
+}
+
+.newsletter-form button{
+
+height:48px;
+
+}
+
+}
+
+/* ===================================
+   Accessibility
+=================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+.newsletter-box{
+
+transition:none;
+
+}
+
+}

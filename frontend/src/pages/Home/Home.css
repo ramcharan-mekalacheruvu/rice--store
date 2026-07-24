@@ -1,116 +1,146 @@
-/* ===================================
-   Home.css — Hero/Categories/Featured wrapper
-   =================================== */
+/* =====================================
+   HOME WRAPPER
+===================================== */
 
-   .home-bg-wrapper {
-    position: relative;
+.home-bg-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+
     background-image: url("../../assets/images/hero-bg.jpg");
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden;
-    animation: bgZoom 20s ease-in-out infinite alternate;
-  }
-  
-  /* slow, subtle zoom/pan on the background image for a living, dynamic feel */
-  @keyframes bgZoom {
-    0% {
-      background-size: 100% auto;
-      background-position: center top;
-    }
-    100% {
-      background-size: 115% auto;
-      background-position: center bottom;
-    }
-  }
-  
-  /* light, uniform overlay — image stays visible through the whole wrapper,
-     just enough tint to keep text/cards readable */
-  .home-bg-wrapper::before {
+
+    position: relative;
+}
+
+.home-bg-wrapper::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255,255,255,.35);
     z-index: 0;
-    pointer-events: none;
-  }
-  
-  /* keep actual section content above the overlay */
-  .home-bg-wrapper > * {
+}
+
+.home-bg-wrapper>*{
     position: relative;
-    z-index: 1;
-  }
-  
-  /* ===================================
-     Section fade/slide-in on load
-     =================================== */
-  
-  .home-bg-wrapper > *,
-  .home-bg-wrapper section {
-    animation: fadeSlideUp 0.9s ease-out both;
-  }
-  
-  .home-bg-wrapper > *:nth-child(1) { animation-delay: 0.1s; }
-  .home-bg-wrapper > *:nth-child(2) { animation-delay: 0.3s; }
-  .home-bg-wrapper > *:nth-child(3) { animation-delay: 0.5s; }
-  
-  @keyframes fadeSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+    z-index: 2;
+}
+
+/* =====================================
+   Sections
+===================================== */
+
+.home-bg-wrapper section{
+    padding:70px 0;
+}
+
+/* =====================================
+   Animation
+===================================== */
+
+.home-bg-wrapper>*{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
     }
-  }
-  
-  /* ===================================
-     Scroll-reveal for lower sections
-     (add class="reveal" in WhyChooseUs,
-     Testimonials, Newsletter root elements,
-     toggled via IntersectionObserver if desired)
-     =================================== */
-  
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  
-  .reveal.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* ===================================
-     Responsive behavior
-     =================================== */
-  
-  @media (max-width: 991px) {
-    .home-bg-wrapper {
-      background-attachment: scroll; /* fixed bg looks buggy on mobile */
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .home-bg-wrapper {
-      animation: none; /* save perf on small/low-power devices */
-      background-size: cover;
-    }
-  
-    .home-bg-wrapper::before {
-      background: rgba(255, 255, 255, 0.45);
-    }
-  }
-  
-  /* Respect users who prefer reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .home-bg-wrapper,
-    .home-bg-wrapper > *,
-    .reveal {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
+
+}
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media(max-width:992px){
+
+.home-bg-wrapper{
+
+background-attachment:scroll;
+
+}
+
+.home-bg-wrapper section{
+
+padding:55px 0;
+
+}
+
+}
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media(max-width:768px){
+
+.home-bg-wrapper{
+
+background-size:cover;
+background-position:center;
+padding:0;
+
+}
+
+.home-bg-wrapper::before{
+
+background:rgba(255,255,255,.45);
+
+}
+
+.home-bg-wrapper section{
+
+padding:40px 0;
+
+}
+
+}
+
+/* =====================================
+   Small Mobile
+===================================== */
+
+@media(max-width:576px){
+
+.home-bg-wrapper{
+
+background-size:cover;
+background-position:center top;
+
+}
+
+.home-bg-wrapper section{
+
+padding:28px 0;
+
+}
+
+}
+
+/* =====================================
+   Extra Small Phones
+===================================== */
+
+@media(max-width:420px){
+
+.home-bg-wrapper section{
+
+padding:22px 0;
+
+}
+
+}

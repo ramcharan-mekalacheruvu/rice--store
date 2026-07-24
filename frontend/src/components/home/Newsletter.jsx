@@ -24,21 +24,17 @@ export default function Newsletter() {
                 <div className="newsletter-box">
 
                     <h2>
-
                         Stay Updated!
-
                     </h2>
 
                     <p>
-
-                        Subscribe to receive offers,
-                        discounts and new arrivals.
-
+                        Subscribe to receive exclusive offers,
+                        discounts and updates on new rice arrivals.
                     </p>
 
                     <form
-                        onSubmit={handleSubmit}
                         className="newsletter-form"
+                        onSubmit={handleSubmit}
                     >
 
                         <input
@@ -49,18 +45,19 @@ export default function Newsletter() {
 
                             value={email}
 
-                            onChange={(e)=>setEmail(e.target.value)}
+                            onChange={(e) =>
+                                setEmail(e.target.value)
+                            }
 
                             required
 
                         />
 
                         <button
+                            type="submit"
                             className="btn btn-warning"
                         >
-
                             Subscribe
-
                         </button>
 
                     </form>
