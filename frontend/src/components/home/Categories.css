@@ -1,85 +1,161 @@
-/*=========================================
+/*==================================================
 Category Section
-=========================================*/
+==================================================*/
 
 .category-section{
 
-background:#f8faf8;
-padding:60px 20px;
-border-radius:22px;
-margin:60px auto;
+padding:80px 0;
+
+background:#f7faf7;
 
 }
 
-/*=========================================
+.category-section .container{
+
+background:#ffffff;
+
+border-radius:28px;
+
+padding:60px 45px;
+
+box-shadow:0 18px 45px rgba(0,0,0,.07);
+
+}
+
+/*==================================================
 Header
-=========================================*/
+==================================================*/
 
 .section-header{
 
-margin-bottom:35px;
+text-align:center;
+
+margin-bottom:55px;
+
+}
+
+.section-badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+background:#E8F5E9;
+
+color:#2E7D32;
+
+border-radius:30px;
+
+font-weight:600;
+
+font-size:14px;
+
+margin-bottom:18px;
 
 }
 
 .section-title{
 
-font-size:36px;
-font-weight:700;
+font-size:42px;
+
+font-weight:800;
+
 color:#222;
-margin-bottom:8px;
+
+margin-bottom:12px;
+
+position:relative;
+
+display:inline-block;
+
+}
+
+.section-title::after{
+
+content:"";
+
+display:block;
+
+width:90px;
+
+height:4px;
+
+margin:18px auto 0;
+
+background:#FFC107;
+
+border-radius:20px;
 
 }
 
 .section-header p{
 
+font-size:17px;
+
 color:#666;
-font-size:16px;
+
+max-width:550px;
+
+margin:auto;
 
 }
 
-/*=========================================
-Card
-=========================================*/
+/*==================================================
+Category Card
+==================================================*/
 
 .category-card{
 
 background:#fff;
-border-radius:18px;
+
+border-radius:22px;
+
 overflow:hidden;
+
 cursor:pointer;
 
 height:100%;
 
 transition:.35s;
 
-box-shadow:0 10px 20px rgba(0,0,0,.05);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 
-border:1px solid #edf2ed;
+border:1px solid #eef2ee;
 
 }
 
 .category-card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px);
 
-box-shadow:0 18px 35px rgba(0,0,0,.12);
+box-shadow:0 22px 40px rgba(0,0,0,.15);
 
 }
 
-/*=========================================
+/*==================================================
 Image
-=========================================*/
+==================================================*/
 
 .category-image-wrapper{
 
-padding:18px;
-background:#f8f8f8;
+height:230px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#f7f7f7;
+
+padding:22px;
 
 }
 
 .category-image{
 
 width:100%;
+
 height:170px;
 
 object-fit:contain;
@@ -94,13 +170,13 @@ transform:scale(1.08);
 
 }
 
-/*=========================================
+/*==================================================
 Body
-=========================================*/
+==================================================*/
 
 .category-card .card-body{
 
-padding:18px 10px;
+padding:22px 15px;
 
 text-align:center;
 
@@ -110,139 +186,167 @@ text-align:center;
 
 margin:0;
 
-font-size:18px;
+font-size:20px;
 
-font-weight:600;
+font-weight:700;
 
-color:#333;
+color:#222;
 
 }
 
-/*=========================================
+/*==================================================
+Empty State
+==================================================*/
+
+.empty-category{
+
+text-align:center;
+
+padding:80px 20px;
+
+color:#777;
+
+}
+
+/*==================================================
 Tablet
-=========================================*/
+==================================================*/
 
 @media(max-width:991px){
 
-.category-section{
+.category-section .container{
 
-padding:45px 18px;
-
-}
-
-.section-title{
-
-font-size:30px;
-
-}
-
-.category-image{
-
-height:140px;
-
-}
-
-.category-card h5{
-
-font-size:16px;
-
-}
-
-}
-
-/*=========================================
-Mobile
-=========================================*/
-
-@media(max-width:768px){
-
-.category-section{
-
-padding:30px 15px;
-margin:30px auto;
-border-radius:18px;
-
-}
-
-.section-header{
-
-text-align:center;
-margin-bottom:25px;
+padding:45px 25px;
 
 }
 
 .section-title{
 
-font-size:26px;
-
-}
-
-.section-header p{
-
-font-size:14px;
+font-size:34px;
 
 }
 
 .category-image-wrapper{
 
-padding:12px;
+height:190px;
 
 }
 
 .category-image{
 
-height:110px;
+height:135px;
+
+}
+
+}
+
+/*==================================================
+Mobile
+==================================================*/
+
+@media(max-width:768px){
+
+.category-section{
+
+padding:45px 0;
+
+}
+
+.category-section .container{
+
+padding:30px 18px;
+
+border-radius:20px;
+
+}
+
+.section-header{
+
+margin-bottom:35px;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.section-header p{
+
+font-size:15px;
+
+}
+
+.section-badge{
+
+font-size:12px;
+
+padding:7px 15px;
+
+}
+
+.category-image-wrapper{
+
+height:150px;
+
+padding:15px;
+
+}
+
+.category-image{
+
+height:100px;
 
 }
 
 .category-card{
 
-border-radius:14px;
+border-radius:16px;
 
 }
 
 .category-card .card-body{
 
-padding:12px 8px;
+padding:14px;
+
+}
+
+.category-card h5{
+
+font-size:15px;
+
+}
+
+}
+
+/*==================================================
+Small Phones
+==================================================*/
+
+@media(max-width:480px){
+
+.section-title{
+
+font-size:24px;
+
+}
+
+.category-image-wrapper{
+
+height:130px;
+
+}
+
+.category-image{
+
+height:85px;
 
 }
 
 .category-card h5{
 
 font-size:14px;
-line-height:1.4;
-
-}
-
-}
-
-/*=========================================
-Small Phones
-=========================================*/
-
-@media(max-width:480px){
-
-.category-section{
-
-padding:22px 12px;
-
-}
-
-.section-title{
-
-font-size:22px;
-
-}
-
-.category-image{
-
-height:90px;
-
-}
-
-.category-card h5{
-
-font-size:13px;
 
 }
 

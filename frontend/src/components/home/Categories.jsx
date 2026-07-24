@@ -13,9 +13,7 @@ export default function Categories() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         loadCategories();
-
     }, []);
 
     async function loadCategories() {
@@ -71,91 +69,97 @@ export default function Categories() {
 
     }
 
-    if (categories.length === 0) {
-
-        return (
-
-            <div className="container category-section">
-
-                <h2 className="section-title">
-
-                    Categories
-
-                </h2>
-
-                <p className="text-muted">
-
-                    No categories found.
-
-                </p>
-
-            </div>
-
-        );
-
-    }
-
     return (
 
-        <section className="container category-section">
+        <section className="category-section">
 
-            <div className="section-header">
+            <div className="container">
 
-                <h2 className="section-title">
+                <div className="section-header">
 
-                    Shop By Category
+                    <span className="section-badge">
+                        Premium Categories
+                    </span>
 
-                </h2>
+                    <h2 className="section-title">
 
-                <p>
+                        Shop By Category
 
-                    Choose your favourite rice variety
+                    </h2>
 
-                </p>
+                    <p>
 
-            </div>
+                        Explore our premium collection of fresh rice varieties.
 
-            <div className="row g-3">
+                    </p>
+
+                </div>
 
                 {
 
-                    categories.map(category => (
+                    categories.length === 0 ?
 
-                        <div
-                            className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6"
-                            key={category.id}
-                        >
+                        <div className="empty-category">
 
-                            <div
-                                className="category-card"
-                                onClick={() => handleCategoryClick(category)}
-                            >
+                            <h5>No Categories Found</h5>
 
-                                <div className="category-image-wrapper">
-
-                                    <img
-                                        src={category.image}
-                                        alt={category.name}
-                                        className="category-image"
-                                    />
-
-                                </div>
-
-                                <div className="card-body">
-
-                                    <h5>
-
-                                        {category.name}
-
-                                    </h5>
-
-                                </div>
-
-                            </div>
+                            <p>Please add categories from Admin Panel.</p>
 
                         </div>
 
-                    ))
+                        :
+
+                        <div className="row justify-content-center g-4">
+
+                            {
+
+                                categories.map(category => (
+
+                                    <div
+
+                                        className="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6"
+
+                                        key={category.id}
+
+                                    >
+
+                                        <div
+
+                                            className="category-card"
+
+                                            onClick={() => handleCategoryClick(category)}
+
+                                        >
+
+                                            <div className="category-image-wrapper">
+
+                                                <img
+
+                                                    src={category.image}
+
+                                                    alt={category.name}
+
+                                                    className="category-image"
+
+                                                />
+
+                                            </div>
+
+                                            <div className="card-body">
+
+                                                <h5>{category.name}</h5>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                ))
+
+                            }
+
+                        </div>
 
                 }
 

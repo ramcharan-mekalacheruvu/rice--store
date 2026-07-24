@@ -59,10 +59,14 @@ export default function Testimonials() {
 
                             <div
                                 key={index}
-                                className="col-12 col-md-6 col-lg-4"
+                                className="col-lg-4 col-md-6"
                             >
 
                                 <div className="testimonial-card">
+
+                                    <div className="quote-icon">
+                                        ❝
+                                    </div>
 
                                     <div className="stars">
 
@@ -72,7 +76,7 @@ export default function Testimonials() {
 
                                     <p className="review">
 
-                                        "{item.review}"
+                                        {item.review}
 
                                     </p>
 
@@ -86,15 +90,11 @@ export default function Testimonials() {
                                         <div>
 
                                             <h6>
-
                                                 {item.name}
-
                                             </h6>
 
                                             <small>
-
                                                 {item.city}
-
                                             </small>
 
                                         </div>

@@ -1,67 +1,80 @@
-/*==========================================
-Hero
-==========================================*/
+/* ==========================================
+   HERO SECTION
+========================================== */
 
 .hero{
-
-margin-top:20px;
-padding:70px 0;
-background:#f8faf8;
-border-radius:24px;
-overflow:hidden;
-position:relative;
-
+    position:relative;
+    overflow:hidden;
+    margin:30px auto 60px;
+    padding:90px 0;
+    border-radius:30px;
+    background:linear-gradient(135deg,#f8fff8 0%,#eef8ee 100%);
 }
 
 .hero::before{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    background:rgba(46,125,50,.08);
+    border-radius:50%;
+    top:-180px;
+    right:-180px;
+}
 
-content:"";
-position:absolute;
-top:0;
-right:0;
-width:350px;
-height:350px;
-background:rgba(46,125,50,.05);
-border-radius:50%;
-transform:translate(120px,-120px);
-
+.hero::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,193,7,.10);
+    border-radius:50%;
+    left:-120px;
+    bottom:-120px;
 }
 
 .hero .container{
-
-position:relative;
-z-index:2;
-
+    position:relative;
+    z-index:2;
 }
 
-/*==========================================
-Hero Badge
-==========================================*/
+/* ===========================
+   LEFT CONTENT
+=========================== */
 
 .hero-badge{
 
-display:inline-block;
-padding:8px 18px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+
+padding:10px 18px;
+
 background:#E8F5E9;
+
 color:#2E7D32;
-border-radius:50px;
+
 font-size:14px;
-font-weight:600;
-margin-bottom:18px;
+
+font-weight:700;
+
+border-radius:50px;
+
+margin-bottom:22px;
 
 }
 
-/*==========================================
-Heading
-==========================================*/
-
 .hero h1{
 
-font-size:54px;
+font-size:60px;
+
 font-weight:800;
+
 line-height:1.15;
-margin-bottom:20px;
-color:#222;
+
+color:#1f2937;
+
+margin-bottom:22px;
 
 }
 
@@ -74,66 +87,119 @@ color:#2E7D32;
 .hero-description{
 
 font-size:18px;
-line-height:1.8;
+
+line-height:1.9;
+
 color:#555;
-margin-bottom:25px;
-max-width:540px;
+
+max-width:560px;
+
+margin-bottom:28px;
 
 }
-
-/*==========================================
-Trust Badge
-==========================================*/
 
 .hero-trust{
 
 display:inline-block;
-background:#FFF8E1;
+
+padding:14px 22px;
+
+background:#fff8e1;
+
 border:1px solid #FFD54F;
-padding:12px 18px;
+
 border-radius:50px;
-font-size:15px;
+
 font-weight:600;
+
+font-size:15px;
+
 color:#795548;
-margin-bottom:30px;
+
+margin-bottom:35px;
 
 }
 
-/*==========================================
-Button
-==========================================*/
+/* ===========================
+BUTTON
+=========================== */
 
 .hero-buttons{
 
 display:flex;
-gap:15px;
-margin-bottom:40px;
+
+gap:18px;
+
+margin-bottom:45px;
 
 }
 
 .hero .btn{
 
-padding:14px 36px;
+padding:15px 40px;
+
 border-radius:50px;
+
 font-size:17px;
+
 font-weight:700;
-transition:.3s;
+
+box-shadow:0 10px 25px rgba(46,125,50,.25);
+
+transition:.35s;
 
 }
 
 .hero .btn:hover{
 
-transform:translateY(-4px);
+transform:translateY(-5px);
 
 }
 
-/*==========================================
-Telugu
-==========================================*/
+/* ===========================
+STATS
+=========================== */
+
+.hero-stats{
+
+display:flex;
+
+gap:40px;
+
+margin-bottom:40px;
+
+}
+
+.hero-stat h3{
+
+font-size:34px;
+
+font-weight:800;
+
+color:#2E7D32;
+
+margin:0;
+
+}
+
+.hero-stat span{
+
+font-size:14px;
+
+color:#666;
+
+}
+
+/* ===========================
+TELUGU
+=========================== */
 
 .hero-telugu{
 
+margin-top:20px;
+
 padding-top:30px;
+
 border-top:1px solid #ddd;
 
 }
@@ -141,8 +207,11 @@ border-top:1px solid #ddd;
 .hero-telugu h2{
 
 font-size:28px;
+
 font-weight:700;
+
 color:#2E7D32;
+
 margin-bottom:15px;
 
 }
@@ -150,113 +219,99 @@ margin-bottom:15px;
 .hero-telugu p{
 
 font-size:17px;
-line-height:1.7;
+
+line-height:1.8;
+
 color:#555;
 
 }
 
-.hero-telugu .telugu{
-
-margin-top:15px;
-margin-bottom:0;
-
-}
-
-/*==========================================
-Image
-==========================================*/
+/* ===========================
+IMAGE
+=========================== */
 
 .hero-image{
 
 width:100%;
-max-width:500px;
+
+max-width:520px;
+
+filter:drop-shadow(0 35px 40px rgba(0,0,0,.18));
+
 animation:float 4s ease-in-out infinite;
-filter:drop-shadow(0 25px 35px rgba(0,0,0,.15));
 
 }
 
 @keyframes float{
 
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-15px);
+0%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
+100%{transform:translateY(0);}
 
 }
 
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-
-/*==========================================
-Tablet
-==========================================*/
+/* ===========================
+TABLET
+=========================== */
 
 @media(max-width:991px){
 
 .hero{
 
-padding:50px 25px;
+padding:70px 30px;
 
 }
 
 .hero h1{
 
-font-size:42px;
-
-}
-
-.hero-description{
-
-font-size:17px;
+font-size:46px;
 
 }
 
 .hero-image{
 
-max-width:360px;
+max-width:380px;
+
 margin-bottom:30px;
 
 }
 
+.hero-stats{
+
+gap:25px;
+
 }
 
-/*==========================================
-Mobile
-==========================================*/
+}
+
+/* ===========================
+MOBILE
+=========================== */
 
 @media(max-width:768px){
 
 .hero{
 
-padding:35px 18px;
-margin-top:12px;
-border-radius:16px;
+padding:45px 20px;
+
+margin:20px auto;
+
+border-radius:20px;
+
 text-align:center;
 
 }
 
 .hero h1{
 
-font-size:32px;
-line-height:1.25;
-margin-top:10px;
+font-size:34px;
 
 }
 
 .hero-description{
 
 font-size:15px;
-line-height:1.7;
+
 max-width:100%;
 
 }
@@ -270,31 +325,36 @@ justify-content:center;
 .hero .btn{
 
 width:100%;
-padding:13px;
-font-size:16px;
-
-}
-
-.hero-trust{
-
-font-size:13px;
-padding:10px 14px;
-border-radius:30px;
 
 }
 
 .hero-image{
 
-max-width:250px;
-margin-bottom:20px;
+max-width:260px;
+
+margin-bottom:25px;
+
 animation:none;
+
+}
+
+.hero-stats{
+
+justify-content:space-around;
+
+margin-bottom:25px;
+
+}
+
+.hero-stat h3{
+
+font-size:26px;
 
 }
 
 .hero-telugu{
 
-margin-top:25px;
-padding-top:20px;
+padding-top:22px;
 
 }
 
@@ -312,15 +372,15 @@ font-size:15px;
 
 }
 
-/*==========================================
-Small Phones
-==========================================*/
+/* ===========================
+SMALL MOBILE
+=========================== */
 
 @media(max-width:480px){
 
 .hero{
 
-padding:28px 15px;
+padding:35px 15px;
 
 }
 
@@ -342,6 +402,18 @@ max-width:210px;
 
 }
 
+.hero-stat h3{
+
+font-size:22px;
+
+}
+
+.hero-stat span{
+
+font-size:12px;
+
+}
+
 .hero-telugu h2{
 
 font-size:20px;
@@ -351,12 +423,6 @@ font-size:20px;
 .hero-telugu p{
 
 font-size:14px;
-
-}
-
-.hero .btn{
-
-font-size:15px;
 
 }
 

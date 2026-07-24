@@ -22,7 +22,12 @@ export default function FeaturedProducts() {
 
             const response = await getProducts();
 
-            setProducts(response.data.results || []);
+            const data =
+                response.data?.results ||
+                response.data ||
+                [];
+
+            setProducts(Array.isArray(data) ? data : []);
 
         }
 
@@ -58,121 +63,131 @@ export default function FeaturedProducts() {
 
     return (
 
-        <section className="featured-section container">
+        <section className="featured-section">
 
-            <div className="section-header">
+            <div className="container">
 
-                <h2>
+                <div className="section-header">
 
-                    Featured Products
+                    <span className="section-badge">
+                        Best Selling Rice
+                    </span>
 
-                </h2>
+                    <h2 className="section-title">
+                        Featured Products
+                    </h2>
 
-                <p>
+                    <p>
+                        Freshly selected premium quality rice for your family.
+                    </p>
 
-                    Freshly selected premium quality rice
+                </div>
 
-                </p>
+                <div className="row justify-content-center g-4">
 
-            </div>
+                    {
 
-            <div className="row g-3">
+                        products.map(product => (
 
-                {
+                            <div
+                                className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6"
+                                key={product.id}
+                            >
 
-                    products.map(product => (
+                                <div className="featured-card">
 
-                        <div
-                            className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6"
-                            key={product.id}
-                        >
+                                    {
 
-                            <div className="featured-card">
+                                        product.discount_price &&
 
-                                {
+                                        <span className="discount-badge">
 
-                                    product.discount_price &&
+                                            SALE
 
-                                    <span className="discount-badge">
+                                        </span>
 
-                                        SALE
+                                    }
 
-                                    </span>
+                                    <div className="featured-image">
 
-                                }
+                                        <img
+                                            src={
+                                                product.image ||
+                                                "https://via.placeholder.com/400x400?text=Rice"
+                                            }
+                                            alt={product.name}
+                                        />
 
-                                <div className="featured-image">
+                                    </div>
 
-                                    <img
-                                        src={
-                                            product.image ||
-                                            "https://via.placeholder.com/400x300?text=Rice"
-                                        }
-                                        alt={product.name}
-                                    />
+                                    <div className="featured-body">
 
-                                </div>
+                                        <small className="category-name">
 
-                                <div className="featured-body">
+                                            {product.category_name || "Premium Rice"}
 
-                                    <h5>
+                                        </small>
 
-                                        {product.name}
+                                        <h5>
 
-                                    </h5>
+                                            {product.name}
 
-                                    <div className="price-wrapper">
+                                        </h5>
 
-                                        {
+                                        <div className="price-wrapper">
 
-                                            product.discount_price ?
+                                            {
 
-                                                <>
+                                                product.discount_price ?
+
+                                                    <>
+
+                                                        <span className="new-price">
+
+                                                            ₹{product.discount_price}
+
+                                                        </span>
+
+                                                        <span className="old-price">
+
+                                                            ₹{product.price}
+
+                                                        </span>
+
+                                                    </>
+
+                                                    :
 
                                                     <span className="new-price">
-
-                                                        ₹{product.discount_price}
-
-                                                    </span>
-
-                                                    <span className="old-price">
 
                                                         ₹{product.price}
 
                                                     </span>
 
-                                                </>
+                                            }
 
-                                                :
+                                        </div>
 
-                                                <span className="new-price">
+                                        <Link
+                                            to={`/products/${product.slug}`}
+                                            className="btn btn-success"
+                                        >
 
-                                                    ₹{product.price}
+                                            View Details
 
-                                                </span>
-
-                                        }
+                                        </Link>
 
                                     </div>
-
-                                    <Link
-                                        to={`/products/${product.slug}`}
-                                        className="btn btn-success w-100"
-                                    >
-
-                                        View Details
-
-                                    </Link>
 
                                 </div>
 
                             </div>
 
-                        </div>
+                        ))
 
-                    ))
+                    }
 
-                }
+                </div>
 
             </div>
 

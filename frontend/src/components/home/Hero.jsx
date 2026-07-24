@@ -54,6 +54,24 @@ export default function Hero() {
                             </Link>
 
                         </div>
+                        <div className="hero-stats">
+
+    <div className="hero-stat">
+        <h3>25+</h3>
+        <span>Rice Varieties</span>
+    </div>
+
+    <div className="hero-stat">
+        <h3>1000+</h3>
+        <span>Happy Customers</span>
+    </div>
+
+    <div className="hero-stat">
+        <h3>24H</h3>
+        <span>Fast Delivery</span>
+    </div>
+
+</div>
 
                         <div className="hero-telugu">
 
