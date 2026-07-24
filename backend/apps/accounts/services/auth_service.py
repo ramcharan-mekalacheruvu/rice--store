@@ -5,6 +5,4 @@ class AuthService:
 
     @staticmethod
     def create_profile(user):
-        UserProfile.objects.create(
-    user=user
-)
+        UserProfile.objects.get_or_create(user=user)
